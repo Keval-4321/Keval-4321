@@ -1,0 +1,25 @@
+<div class="container" [hidden]="!flag">
+    <table class="table table-striped table-dark mt-3">
+        <thead>
+          <tr>
+            <th scope="col">Id</th>
+            <th scope="col">Employee Name</th>
+            <th scope="col">Age</th>
+            <th scope="col">Salary</th>
+            <th scope="col">Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let item of myObj?.body.data; let i = index;">
+            <td>{{(page-1)*pageSize + i + 1}}</td>
+            <td>{{item.employee_name}}</td>
+            <td>{{item.employee_age}}</td>
+            <td>{{item.employee_salary}}</td>
+            <td>
+              <button class="btn btn-primary" (click)="updtUser(item.id)">Edit</button> 
+              <button class="btn btn-danger m-2" (click)="delete(item.id)">Delete</button>
+            </td>
+          </tr>
+        </tbody>
+    </table>
+  </div>

@@ -1,0 +1,40 @@
+<div class="container">
+    <form [formGroup]="empForm">
+        <div class="row">
+            <div class="form-group col">
+                <label class="lbl">Employee Name</label>
+                <input type="text" formControlName="employee_name" [class]=" form.employee_name.valid ?  'form-control is-valid' : form.employee_name.touched || submit ?'form-control is-invalid' : 'form-control'" placeholder="Employee name">
+                <div class="invalid-feedback">
+                    This field is required.
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="form-group col-md-6">
+                <label class="lbl">Employee Salary</label>
+                <input type="number" formControlName="employee_salary" [class]=" form.employee_salary.valid ?  'form-control is-valid' : form.employee_salary.touched || submit ?'form-control is-invalid' : 'form-control'" placeholder="Employee salary">
+                <div class="invalid-feedback">
+                    This field is required.
+                </div>
+            </div>
+            <div class="form-group col-md-6">
+                <label class="lbl">Date of birth</label>
+                <input type="date" id="mydate" #date [class]="validateDate(date.value)? 'form-control is-valid': submit ? 'form-control is-invalid' : 'form-control' " placeholder="Date of birth">
+                <small class="form-text text-muted">Your age should be above 18.</small>
+                <div class="invalid-feedback">
+                    This field is required.
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="lbl">Profile Image</label>
+            <input type="file" [class]="form.profile_image.touched || submit ? 'form-control is-valid' : 'form-control' " formControlName="profile_image">
+        </div>
+        <div class="row">
+            <div class="col">
+                <button type="submit" class="btn btn-primary" [hidden]="!flag" (click)="post()">Create User</button>
+                <button type="submit" class="btn btn-primary" [hidden]="flag" (click)="put()">Update User</button>
+            </div>
+        </div>
+    </form>
+</div>

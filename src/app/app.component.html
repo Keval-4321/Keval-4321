@@ -1,0 +1,11 @@
+<div class="container">
+  <div class="row">
+    <div class="col">
+    <h1>Employee Form</h1>
+    </div>
+  </div>
+    <button class="btn btn-outline-primary mybtn" routerLink="/display">Get Data</button>
+    <button class="btn btn-outline-success crtbtn" [queryParams]="{action:'create'}" routerLink="/form">Create Data</button>
+</div>
+<br><br>
+<router-outlet></router-outlet>
